@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Manoj's Blog
+{% endblock title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/post.css' %}"/>
+    <link rel="stylesheet" href="{% static 'blog/index.css' %}"/>
+{% endblock css_files %}
+
+{% block content %} 
+    
+    <section id="welcome">
+        <header>
+            <img src="{% static 'blog/images/manoj.jpg' %}" alt="Manoj - The author of this blog"/>
+            <h2>Manoj's Blog</h2>
+        </header>
+    </section>
+    <section>
+        <h2>My Latest Thoughts</h2>
+        <ul>
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %}
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>What I do</h2>
+        <p>
+            I love programming, I write blogs as a hobby
+        </p>
+        <p>
+            My goal is to keep on growing as a developer
+        </p>
+    </section>
+{% endblock content %}
